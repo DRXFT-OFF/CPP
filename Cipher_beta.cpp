@@ -1,5 +1,4 @@
 #include <iostream>
-#include <locale.h>
 using namespace std;
 
 const int key = 188;
@@ -11,9 +10,7 @@ void Print_Decrypted(char* decrypted_pointer);
 
 int main()
 {
-	setlocale(LC_ALL, "Russian");
-	
-	cout << "Введите строку для зашифровки: ";
+	cout << "Enter your string: ";
 	char ch[50];
 	cin.getline(ch, sizeof(ch));
 	char *encrypted, *decrypted;
@@ -48,10 +45,10 @@ char* Decipher(char* encrypted_input)
 
 void Print_Encrypted(char* encrypted_pointer)
 {
-	cout << "Зашифровано: " << encrypted_pointer << "\n";
+	cout << "Encrypted: " << encrypted_pointer << "\n";
 }
 
 void Print_Decrypted(char* decrypted_pointer)
 {
-	cout << "Расшифровано: " << decrypted_pointer << "\n";
+	cout << "Decrypted: " << decrypted_pointer << "\n";
 }
