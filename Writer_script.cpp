@@ -21,7 +21,7 @@ int main() {
             {
                 Input.ki.wVk = VkKeyScanA(ch[i]);
                 Input.ki.dwFlags = 0;
-                SendInput(1, &Input, sizeof(Input));
+                SendInput(2, &Input, sizeof(Input));
                 Input.ki.dwFlags = KEYEVENTF_KEYUP;
             }
             flag = 0;
@@ -31,5 +31,10 @@ int main() {
             return 0;
         }
     }
+    Input.ki.wVk = 0x0D;
+    Input.ki.dwFlags = 0;
+    SendInput(2, &Input, sizeof(Input));
+    Input.ki.dwFlags = KEYEVENTF_KEYUP;
+    ZeroMemory(&Input, sizeof(Input));
     return 0;
 }
