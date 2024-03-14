@@ -17,11 +17,15 @@ int main() {
             Input.ki.wScan = 0;
             Input.ki.time = 0;
             Input.ki.dwExtraInfo = 0;
+            Input.ki.wVk = 8;
+            Input.ki.dwFlags = 0;
+            SendInput(3, &Input, sizeof(Input));
+            Input.ki.dwFlags = KEYEVENTF_KEYUP;
             for (int i = 0; ch[i] != '\0'; i++)
             {
                 Input.ki.wVk = VkKeyScanA(ch[i]);
                 Input.ki.dwFlags = 0;
-                SendInput(2, &Input, sizeof(Input));
+                SendInput(3, &Input, sizeof(Input));
                 Input.ki.dwFlags = KEYEVENTF_KEYUP;
             }
             flag = 0;
@@ -33,7 +37,7 @@ int main() {
     }
     Input.ki.wVk = 0x0D;
     Input.ki.dwFlags = 0;
-    SendInput(2, &Input, sizeof(Input));
+    SendInput(3, &Input, sizeof(Input));
     Input.ki.dwFlags = KEYEVENTF_KEYUP;
     ZeroMemory(&Input, sizeof(Input));
     return 0;
